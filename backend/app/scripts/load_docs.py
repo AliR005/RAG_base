@@ -1,4 +1,4 @@
-from vector_store import VectorStore
+from app.db.vector_store import VectorStore
 
 if __name__ == "__main__":
     db = VectorStore()

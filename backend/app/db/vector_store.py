@@ -1,9 +1,9 @@
 import hashlib
 from os import listdir
 
+from app.core.config import settings
 from chromadb import PersistentClient
 from chromadb.api.types import EmbeddingFunction
-from config import settings
 from sentence_transformers import SentenceTransformer
 
 
@@ -25,7 +25,7 @@ class VectorStore:
         )
 
     def load_docs(self, directory: str):
-        from doc_processor import read_docx_and_split
+        from app.scripts.doc_processor import read_docx_and_split
 
         files_paths = [
             f"{directory}/{filename}"

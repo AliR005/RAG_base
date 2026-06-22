@@ -1,5 +1,5 @@
 import ollama
-from config import settings
+from app.core.config import settings
 
 
 class LLMAssistant:
@@ -12,7 +12,7 @@ class LLMAssistant:
                 model=self.model_name,
                 messages=[{"role": "user", "content": prompt}],
                 options={
-                    "temperature": 0.5,
+                    "temperature": 0.2,
                     "num_ctx": 4096,
                     "top_k": 40,
                     "top_p": 0.9,
