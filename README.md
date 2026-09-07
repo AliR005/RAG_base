@@ -40,14 +40,15 @@ Documents → Chunking → Embeddings → Vector DB → Retrieval → LLM → An
 git clone <repo>
 cd <project>
 
-uv sync
+uv init
+uv add -r requirements.txt
 ```
 
 ---
 
 ## 📄 Подготовка данных
-В `/backend/docs` находятся данные собранные с публичного сайта `даггау.рф`
-Можете удалить их и вставить свои документы `.docx`
+В `/backend/docs` должны находиться данные формата .docx,
+которые будут использоваться для внесения в бд.
 
 
 ## 🧠 Загрузка документов
