@@ -11,17 +11,21 @@ from app.adapters.reranker.bge_reranker import BgeReranker
 from app.adapters.vector_store.qdrant_store import QdrantVectorStore
 from app.application.retrieve import RetrieveUseCase
 from app.core.config import settings
-from app.db.vector_store import VectorStore
-from app.services.llm import LLMAssistant
 
 
 @lru_cache
-def get_vector_store() -> VectorStore:
+def get_vector_store():
+    # Ленивый импорт: chromadb + sentence-transformers тяжелы и нужны
+    # только legacy-эндпоинту /query/.
+    from app.db.vector_store import VectorStore
+
     return VectorStore()
 
 
 @lru_cache
-def get_llm() -> LLMAssistant:
+def get_llm():
+    from app.services.llm import LLMAssistant
+
     return LLMAssistant()
 
 

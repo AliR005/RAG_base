@@ -1,0 +1,42 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Install slim dependencies
+        # Полный стек (torch, chromadb, docling) для unit/contract-тестов
+        # не нужен: тяжёлые импорты ленивые, live-тесты gated by RAG_LIVE.
+        run: |
+          pip install \
+            fastapi httpx sqlalchemy pydantic-settings python-dotenv \
+            pyyaml bcrypt pyjwt email-validator python-multipart \
+            pytest "ruff==0.9.10"
+      - name: Lint
+        run: ruff check backend && ruff format --check backend
+      - name: Tests
+        run: pytest -q
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build

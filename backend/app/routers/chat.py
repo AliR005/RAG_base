@@ -1,9 +1,15 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 from app.core.dependencies import get_llm, get_vector_store
-from app.db.vector_store import VectorStore
 from app.schemas.chat import ChatRequest, ChatResponse
-from app.services.llm import LLMAssistant
 from app.services.rag import get_rag_answer
 from fastapi import APIRouter, Depends
+
+if TYPE_CHECKING:
+    from app.db.vector_store import VectorStore
+    from app.services.llm import LLMAssistant
 
 router = APIRouter()
 

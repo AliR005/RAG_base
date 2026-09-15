@@ -33,8 +33,11 @@ def _run_migrations() -> None:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    get_vector_store()
-    get_llm()
+    try:
+        get_vector_store()
+        get_llm()
+    except Exception as e:
+        print(f"Legacy Chroma/Ollama stack unavailable: {e}")
     try:
         await asyncio.to_thread(_run_migrations)
         container: AppContainer | None = build_container(settings)

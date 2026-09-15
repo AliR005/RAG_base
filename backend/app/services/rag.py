@@ -1,8 +1,14 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 import yaml
-from app.db.vector_store import VectorStore
 from app.schemas.chat import Message
 from app.services.history import format_history
-from app.services.llm import LLMAssistant
+
+if TYPE_CHECKING:
+    from app.db.vector_store import VectorStore
+    from app.services.llm import LLMAssistant
 
 
 def _load_template() -> str:
