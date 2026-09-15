@@ -309,7 +309,7 @@ RAG_base/
 
 - [x] 1. `chore`: настройка репозитория — uv/poetry, `ruff`/`pre-commit`, обновлённый `.env.example`, базовая структура папок под чистую архитектуру.
 - [x] 2. `feat(domain)`: доменные сущности и порты — `Document`, `Chunk`, `ChatMessage`; интерфейсы `DocumentLoader`, `Chunker`, `EmbeddingProvider`, `VectorStoreRepository`, `LLMProvider`, `ChatRepository`.
-- [ ] 3. `feat(infra)`: `docker-compose.yml` — Qdrant, Postgres, Redis.
+- [x] 3. `feat(infra)`: `docker-compose.yml` — Qdrant, Postgres, Redis.
 - [ ] 4. `feat(ingestion)`: адаптер `DoclingLoader` (pdf/docx/pptx/xlsx/html/md/изображения) + `HybridChunker`.
 - [ ] 5. `feat(ingestion)`: `YouTubeLoader` (`yt-dlp` + `youtube-transcript-api`, fallback `faster-whisper`).
 - [ ] 6. `feat(ingestion)`: `LoaderFactory` + асинхронная очередь (arq/RQ) + таблица `documents` со статусами.
