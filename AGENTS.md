@@ -321,7 +321,7 @@ RAG_base/
 - [x] 12. `feat(db)`: async SQLAlchemy-модели + Alembic-миграции (`users`, `chats`, `messages`, `documents`).
 - [x] 13. `feat(api)`: CRUD чатов и сообщений, сохранение источников (citations) к ответам.
 - [x] 14. `feat(api)`: эндпоинты управления документами (файл/URL/YouTube), статус обработки.
-- [ ] 15. `feat(frontend)`: каркас Next.js + Tailwind + shadcn/ui, страницы авторизации.
+- [x] 15. `feat(frontend)`: каркас Next.js + Tailwind + shadcn/ui, страницы авторизации.
 - [ ] 16. `feat(frontend)`: чат со стримингом (SSE/`useChat`), выбор модели, отображение источников.
 - [ ] 17. `feat(frontend)`: страница управления базой знаний (загрузка файлов/ссылок, статусы, удаление).
 - [ ] 18. `feat(frontend)`: сайдбар с сохранёнными чатами, финальный минималистичный дизайн, адаптивность.

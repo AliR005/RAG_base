@@ -10,3 +10,6 @@ backend/static/
 htmlcov/
 backend/chroma_db
 backend/uploads/
+frontend/node_modules/
+frontend/.next/
+frontend/out/

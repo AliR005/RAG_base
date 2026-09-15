@@ -26,7 +26,7 @@ backend:
 	cd backend && uv run uvicorn app.main:app --host $(HOST) --port $(PORT)
 
 frontend:
-	cd frontend && uv run streamlit run ui.py
+	cd frontend && npm run dev
 
 run:
 	$(MAKE) -j2 backend frontend &
