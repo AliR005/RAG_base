@@ -30,6 +30,7 @@ class Document:
     origin: str  # путь к файлу, URL статьи или URL видео
     status: DocumentStatus = DocumentStatus.PENDING
     title: str | None = None
+    content_hash: str | None = None
     error: str | None = None
     created_at: datetime = field(default_factory=datetime.utcnow)
 

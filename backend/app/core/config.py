@@ -12,6 +12,9 @@ class Settings(BaseSettings):
     EMBEDDING_MODEL: str = "intfloat/multilingual-e5-base"
     CHROMA_PATH: str = str(BASE_DIR / "chroma_db")
     COLLECTION_NAME: str = "collections_docs"
+    QDRANT_URL: str = "http://localhost:6333"
+    DATABASE_URL: str = "postgresql+asyncpg://rag:rag@localhost:5432/rag"
+    REDIS_URL: str = "redis://localhost:6379"
 
     model_config = {"env_file": BASE_DIR.parent / ".env"}
 

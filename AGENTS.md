@@ -312,7 +312,7 @@ RAG_base/
 - [x] 3. `feat(infra)`: `docker-compose.yml` — Qdrant, Postgres, Redis.
 - [x] 4. `feat(ingestion)`: адаптер `DoclingLoader` (pdf/docx/pptx/xlsx/html/md/изображения) + `HybridChunker`.
 - [x] 5. `feat(ingestion)`: `YouTubeLoader` (`yt-dlp` + `youtube-transcript-api`, fallback `faster-whisper`).
-- [ ] 6. `feat(ingestion)`: `LoaderFactory` + асинхронная очередь (arq/RQ) + таблица `documents` со статусами.
+- [x] 6. `feat(ingestion)`: `LoaderFactory` + асинхронная очередь (arq/RQ) + таблица `documents` со статусами.
 - [ ] 7. `feat(vector-store)`: `QdrantVectorStoreRepository` — dense+sparse (`bge-m3`), payload-фильтрация по `user_id`.
 - [ ] 8. `feat(retrieval)`: гибридный поиск (RRF) + реранкинг (`bge-reranker-v2-m3`).
 - [ ] 9. `feat(llm)`: провайдеры `OpenRouterProvider`, `AnthropicProvider`, `OllamaProvider` + `LLMProviderFactory` + реестр моделей.
