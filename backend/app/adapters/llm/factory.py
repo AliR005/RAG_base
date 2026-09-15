@@ -26,10 +26,21 @@ class ModelInfo:
     context_window: int
 
 
-def load_registry(path: str | Path = REGISTRY_PATH) -> list[ModelInfo]:
-    """Читать models.yaml. ${LLM_MODEL} подставляется из окружения."""
+def load_registry(
+    path: str | Path = REGISTRY_PATH, llm_model: str | None = None
+) -> list[ModelInfo]:
+    """Читать models.yaml. ${LLM_MODEL} подставляется из Settings
+    (читает .env через pydantic), а не только из os.environ."""
+    if llm_model is None:
+        try:
+            from app.core.config import settings
+
+            llm_model = settings.LLM_MODEL
+        except Exception:
+            llm_model = os.environ.get("LLM_MODEL", "")
     raw = Path(path).read_text(encoding="utf-8")
-    template = os.path.expandvars(raw)
+    template = raw.replace("${LLM_MODEL}", llm_model or "")
+    template = os.path.expandvars(template)
     data = yaml.safe_load(template) or {}
     return [ModelInfo(**item) for item in data.get("models", [])]
 
