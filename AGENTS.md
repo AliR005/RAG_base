@@ -319,7 +319,7 @@ RAG_base/
 - [x] 10. `feat(api)`: настоящий SSE-стриминг вместо fake streaming.
 - [x] 11. `feat(auth)`: регистрация/логин, JWT, хэширование паролей, middleware авторизации.
 - [x] 12. `feat(db)`: async SQLAlchemy-модели + Alembic-миграции (`users`, `chats`, `messages`, `documents`).
-- [ ] 13. `feat(api)`: CRUD чатов и сообщений, сохранение источников (citations) к ответам.
+- [x] 13. `feat(api)`: CRUD чатов и сообщений, сохранение источников (citations) к ответам.
 - [ ] 14. `feat(api)`: эндпоинты управления документами (файл/URL/YouTube), статус обработки.
 - [ ] 15. `feat(frontend)`: каркас Next.js + Tailwind + shadcn/ui, страницы авторизации.
 - [ ] 16. `feat(frontend)`: чат со стримингом (SSE/`useChat`), выбор модели, отображение источников.
