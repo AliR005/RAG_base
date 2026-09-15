@@ -9,3 +9,4 @@ backend/static/
 .coverage
 htmlcov/
 backend/chroma_db
+backend/uploads/

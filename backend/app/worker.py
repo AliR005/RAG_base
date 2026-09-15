@@ -17,7 +17,13 @@ REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
 
 
 async def startup(ctx: dict) -> None:
-    ctx["usecase_factory"] = None
+    """Собрать реальный use-case из container. Тяжёлое: модели грузятся
+    лениво при первом вызове, но Postgres/Qdrant должны быть доступны."""
+    from app.core.config import settings
+    from app.core.container import build_container
+
+    container = build_container(settings)
+    ctx["usecase_factory"] = container.ingest
 
 
 async def ingest_document(ctx: dict, document_id: str, user_id: str) -> None:

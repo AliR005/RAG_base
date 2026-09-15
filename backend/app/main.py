@@ -16,6 +16,7 @@ from app.core.dependencies import (
 from app.routers.auth import router as auth_router
 from app.routers.chat import router as chat_router
 from app.routers.chats import router as chats_router
+from app.routers.documents import router as documents_router
 from app.routers.models import router as models_router
 from app.routers.stream import router as stream_router
 from fastapi import FastAPI
@@ -69,6 +70,7 @@ app.include_router(stream_router)
 app.include_router(auth_router)
 app.include_router(chats_router)
 app.include_router(models_router)
+app.include_router(documents_router)
 
 
 @app.get("/health")
