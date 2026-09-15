@@ -12,6 +12,7 @@ import os
 from collections.abc import Callable
 
 from app.application.ingest import IngestDocumentUseCase
+from arq.connections import RedisSettings
 
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
 
@@ -56,9 +57,8 @@ async def enqueue_ingest(
 class WorkerSettings:
     functions = [ingest_document]
     on_startup = startup
-
-    @staticmethod
-    def redis_settings():
-        from arq.connections import RedisSettings
-
-        return RedisSettings.from_dsn(os.getenv("REDIS_URL", REDIS_URL))
+    # NB: arq читает это поле как готовый RedisSettings (create_pool
+    # обращается к .host/.port). Вариант "@staticmethod def
+    # redis_settings()" arq не вызывает — падает AttributeError:
+    # 'staticmethod' object has no attribute 'host'.
+    redis_settings = RedisSettings.from_dsn(os.getenv("REDIS_URL", REDIS_URL))
