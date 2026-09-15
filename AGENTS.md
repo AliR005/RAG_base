@@ -311,7 +311,7 @@ RAG_base/
 - [x] 2. `feat(domain)`: доменные сущности и порты — `Document`, `Chunk`, `ChatMessage`; интерфейсы `DocumentLoader`, `Chunker`, `EmbeddingProvider`, `VectorStoreRepository`, `LLMProvider`, `ChatRepository`.
 - [x] 3. `feat(infra)`: `docker-compose.yml` — Qdrant, Postgres, Redis.
 - [x] 4. `feat(ingestion)`: адаптер `DoclingLoader` (pdf/docx/pptx/xlsx/html/md/изображения) + `HybridChunker`.
-- [ ] 5. `feat(ingestion)`: `YouTubeLoader` (`yt-dlp` + `youtube-transcript-api`, fallback `faster-whisper`).
+- [x] 5. `feat(ingestion)`: `YouTubeLoader` (`yt-dlp` + `youtube-transcript-api`, fallback `faster-whisper`).
 - [ ] 6. `feat(ingestion)`: `LoaderFactory` + асинхронная очередь (arq/RQ) + таблица `documents` со статусами.
 - [ ] 7. `feat(vector-store)`: `QdrantVectorStoreRepository` — dense+sparse (`bge-m3`), payload-фильтрация по `user_id`.
 - [ ] 8. `feat(retrieval)`: гибридный поиск (RRF) + реранкинг (`bge-reranker-v2-m3`).
