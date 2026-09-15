@@ -16,7 +16,6 @@ dependencies = [
     "fastapi==0.115.11",
     "fastembed>=0.7.4",
     "httpx>=0.28.1",
-    "langchain==0.3.20",
     "ollama>=0.6.2",
     "pydantic-settings==2.14.1",
     "pyjwt>=2.14.0",
