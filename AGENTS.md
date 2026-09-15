@@ -329,7 +329,7 @@ RAG_base/
 - [x] 20. `ci`: GitHub Actions — lint + тесты на каждый push.
 - [x] 21. `feat(observability)`: структурное логирование, rate limiting.
 - [x] 22. `docs`: полный README — архитектурная диаграмма (mermaid), скриншоты, инструкция по запуску.
-- [ ] 23. *(опционально)* `feat(eval)`: RAGAS-оценка retrieval на golden-сете вопросов.
+- [x] 23. *(опционально)* `feat(eval)`: RAGAS-оценка retrieval на golden-сете вопросов.
 
 ---
 

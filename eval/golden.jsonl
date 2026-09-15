@@ -1,0 +1,10 @@
+{"question": "Какие документы нужны для поступления?", "expected_section": "Необходимые документы", "keywords": ["документ", "поступлен"], "source": "abiturient.docx"}
+{"question": "Где находится приёмная комиссия и как с ней связаться?", "expected_section": "Приемная комиссия", "keywords": ["приёмная комиссия", "приемная комиссия"], "source": "abiturient.docx"}
+{"question": "Какие есть способы подачи документов?", "expected_section": "Способы подачи документов", "keywords": ["подач"], "source": "abiturient.docx"}
+{"question": "Какой минимальный балл нужен для участия в конкурсе?", "expected_section": "Минимальное количество баллов", "keywords": ["балл", "конкурс"], "source": "abiturient.docx"}
+{"question": "Какие факультеты есть в ДагГАУ?", "expected_section": "Факультет агроэкологии", "keywords": ["факультет"], "source": "daggau_faculties.docx"}
+{"question": "Что изучают на факультете ветеринарной медицины?", "expected_section": "Факультет ветеринарной медицины", "keywords": ["ветеринар"], "source": "daggau_faculties.docx"}
+{"question": "Когда был основан университет?", "expected_section": "Основание университета", "keywords": ["основан"], "source": "daggau_main_info.docx"}
+{"question": "Кто руководит университетом?", "expected_section": "Руководство университетом", "keywords": ["ректор"], "source": "daggau_main_info.docx"}
+{"question": "Когда университет получил статус университета?", "expected_section": "Присвоение статуса университета", "keywords": ["статус университета"], "source": "daggau_main_info.docx"}
+{"question": "Какие сроки приёма в магистратуру?", "expected_section": "магистратуры устанавливаются следующие сроки", "keywords": ["магистратур"], "source": "abiturient.docx"}
