@@ -19,6 +19,7 @@ jobs:
           pip install \
             fastapi httpx sqlalchemy pydantic-settings python-dotenv \
             pyyaml bcrypt pyjwt email-validator python-multipart \
+            structlog slowapi \
             pytest "ruff==0.9.10"
       - name: Lint
         run: ruff check backend && ruff format --check backend
