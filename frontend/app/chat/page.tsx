@@ -12,6 +12,7 @@ import {
 } from "@/lib/api";
 import ModelSelect from "@/components/ModelSelect";
 import SourceChips from "@/components/SourceChips";
+import { CHATS_CHANGED } from "@/components/Sidebar";
 
 interface ViewMessage {
   id: string;
@@ -137,6 +138,7 @@ function ChatView() {
       if (firstInChat && id) {
         const title = query.slice(0, 40);
         await api.renameChat(id, title).catch(() => undefined);
+        window.dispatchEvent(new Event(CHATS_CHANGED));
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Ошибка отправки");
