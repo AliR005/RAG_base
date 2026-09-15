@@ -2,6 +2,7 @@ from contextlib import asynccontextmanager
 
 from app.core.dependencies import get_llm, get_vector_store
 from app.routers.chat import router as chat_router
+from app.routers.stream import router as stream_router
 from fastapi import FastAPI
 
 
@@ -20,6 +21,7 @@ app = FastAPI(
 )
 
 app.include_router(chat_router)
+app.include_router(stream_router)
 
 
 @app.get("/health")

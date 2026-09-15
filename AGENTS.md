@@ -316,7 +316,7 @@ RAG_base/
 - [x] 7. `feat(vector-store)`: `QdrantVectorStoreRepository` — dense+sparse (`bge-m3`), payload-фильтрация по `user_id`.
 - [x] 8. `feat(retrieval)`: гибридный поиск (RRF) + реранкинг (`bge-reranker-v2-m3`).
 - [x] 9. `feat(llm)`: провайдеры `OpenRouterProvider`, `AnthropicProvider`, `OllamaProvider` + `LLMProviderFactory` + реестр моделей.
-- [ ] 10. `feat(api)`: настоящий SSE-стриминг вместо fake streaming.
+- [x] 10. `feat(api)`: настоящий SSE-стриминг вместо fake streaming.
 - [ ] 11. `feat(auth)`: регистрация/логин, JWT, хэширование паролей, middleware авторизации.
 - [ ] 12. `feat(db)`: async SQLAlchemy-модели + Alembic-миграции (`users`, `chats`, `messages`, `documents`).
 - [ ] 13. `feat(api)`: CRUD чатов и сообщений, сохранение источников (citations) к ответам.
