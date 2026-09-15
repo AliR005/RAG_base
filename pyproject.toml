@@ -1,0 +1,36 @@
+[project]
+name = "rag-base"
+version = "0.1.0"
+description = "RAG-система для абитуриентов и студентов ДагГАУ (FastAPI + ChromaDB + Ollama + Streamlit)"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "chromadb==0.6.3",
+    "fastapi==0.115.11",
+    "langchain==0.3.20",
+    "pydantic-settings==2.14.1",
+    "python-docx==1.1.2",
+    "python-dotenv==1.0.1",
+    "sentence-transformers==3.4.1",
+    "streamlit==1.43.2",
+    "uvicorn==0.34.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "httpx>=0.28",
+    "ruff>=0.9",
+    "pre-commit>=4",
+]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 79
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["backend/tests"]

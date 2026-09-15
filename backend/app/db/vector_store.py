@@ -21,7 +21,8 @@ class VectorStore:
         self.embedding_function = CustomEmbeddingFunction(self.model)
         self.client = PersistentClient(path=settings.CHROMA_PATH)
         self.collection = self.client.get_or_create_collection(
-            settings.COLLECTION_NAME, embedding_function=self.embedding_function
+            settings.COLLECTION_NAME,
+            embedding_function=self.embedding_function,
         )
 
     def load_docs(self, directory: str):
@@ -44,7 +45,6 @@ class VectorStore:
                 print(f"Processed {path}: {len(chunks)} chunks")
 
     def find_relevant_context(self, query_embedding, top_k=5):
-
         query_embedding_list = query_embedding.tolist()
         results = self.collection.query(
             query_embeddings=[query_embedding_list], n_results=top_k

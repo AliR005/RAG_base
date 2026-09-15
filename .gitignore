@@ -5,3 +5,7 @@ __pycache__/
 backend/static/
 .env
 .ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+backend/chroma_db
