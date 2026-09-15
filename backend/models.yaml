@@ -1,0 +1,21 @@
+models:
+  - id: deepseek-chat
+    name: DeepSeek Chat
+    provider: openrouter
+    model: deepseek/deepseek-chat
+    context_window: 128000
+  - id: llama-70b
+    name: Llama 3.3 70B
+    provider: openrouter
+    model: meta-llama/llama-3.3-70b-instruct
+    context_window: 128000
+  - id: claude-haiku
+    name: Claude Haiku
+    provider: anthropic
+    model: claude-3-5-haiku-latest
+    context_window: 200000
+  - id: local
+    name: Ollama (локальная)
+    provider: ollama
+    model: ${LLM_MODEL}
+    context_window: 4096
