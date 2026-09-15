@@ -61,7 +61,7 @@ class IngestDocumentUseCase:
             texts = [c.content for c in chunks]
             vectors = await self.embeddings.embed_texts(texts)
             await self.vectors.add(chunks, vectors)
-            doc.content_hash = digest
+            await self.documents.set_hash(document_id, digest)
             await self.documents.set_status(document_id, DocumentStatus.DONE)
         except Exception as e:
             await self.documents.set_status(

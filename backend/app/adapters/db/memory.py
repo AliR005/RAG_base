@@ -113,6 +113,11 @@ class InMemoryDocumentRepository:
             doc.status = status
             doc.error = error
 
+    async def set_hash(self, doc_id: str, digest: str) -> None:
+        doc = self._docs.get(doc_id)
+        if doc:
+            doc.content_hash = digest
+
     async def delete(self, doc_id: str, user_id: str) -> bool:
         doc = await self.get(doc_id, user_id)
         if not doc:

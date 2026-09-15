@@ -318,7 +318,7 @@ RAG_base/
 - [x] 9. `feat(llm)`: провайдеры `OpenRouterProvider`, `AnthropicProvider`, `OllamaProvider` + `LLMProviderFactory` + реестр моделей.
 - [x] 10. `feat(api)`: настоящий SSE-стриминг вместо fake streaming.
 - [x] 11. `feat(auth)`: регистрация/логин, JWT, хэширование паролей, middleware авторизации.
-- [ ] 12. `feat(db)`: async SQLAlchemy-модели + Alembic-миграции (`users`, `chats`, `messages`, `documents`).
+- [x] 12. `feat(db)`: async SQLAlchemy-модели + Alembic-миграции (`users`, `chats`, `messages`, `documents`).
 - [ ] 13. `feat(api)`: CRUD чатов и сообщений, сохранение источников (citations) к ответам.
 - [ ] 14. `feat(api)`: эндпоинты управления документами (файл/URL/YouTube), статус обработки.
 - [ ] 15. `feat(frontend)`: каркас Next.js + Tailwind + shadcn/ui, страницы авторизации.
