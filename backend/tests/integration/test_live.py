@@ -101,16 +101,20 @@ def test_qdrant_live():
         )
         await store.ensure_collection()
         chunks = [
-            Chunk(id="live_0", document_id="live", content="агрономия и почвы")
+            Chunk(
+                id="live_0",
+                document_id="live",
+                content="тестовый фрагмент про поиск",
+            )
         ]
         vec = [[random.random() for _ in range(1024)]]
         await store.add(chunks, vec, user_id="live-user")
-        res = await store.search("почвы", vec[0], "live-user", top_k=1)
+        res = await store.search("поиск", vec[0], "live-user", top_k=1)
         assert len(res) == 1
-        assert res[0].chunk.content == "агрономия и почвы"
-        assert await store.search("почвы", vec[0], "чужой") == []
+        assert res[0].chunk.content == "тестовый фрагмент про поиск"
+        assert await store.search("поиск", vec[0], "чужой") == []
         await store.delete_by_document("live")
-        assert await store.search("почвы", vec[0], "live-user") == []
+        assert await store.search("поиск", vec[0], "live-user") == []
         QdrantClient(url="http://localhost:6333").delete_collection(
             "test_live_pytest"
         )

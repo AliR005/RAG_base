@@ -1,10 +1,10 @@
-{"question": "Какие документы нужны для поступления?", "expected_section": "Необходимые документы", "keywords": ["документ", "поступлен"], "source": "abiturient.docx"}
-{"question": "Где находится приёмная комиссия и как с ней связаться?", "expected_section": "Приемная комиссия", "keywords": ["приёмная комиссия", "приемная комиссия"], "source": "abiturient.docx"}
-{"question": "Какие есть способы подачи документов?", "expected_section": "Способы подачи документов", "keywords": ["подач"], "source": "abiturient.docx"}
-{"question": "Какой минимальный балл нужен для участия в конкурсе?", "expected_section": "Минимальное количество баллов", "keywords": ["балл", "конкурс"], "source": "abiturient.docx"}
-{"question": "Какие факультеты есть в ДагГАУ?", "expected_section": "Факультет агроэкологии", "keywords": ["факультет"], "source": "daggau_faculties.docx"}
-{"question": "Что изучают на факультете ветеринарной медицины?", "expected_section": "Факультет ветеринарной медицины", "keywords": ["ветеринар"], "source": "daggau_faculties.docx"}
-{"question": "Когда был основан университет?", "expected_section": "Основание университета", "keywords": ["основан"], "source": "daggau_main_info.docx"}
-{"question": "Кто руководит университетом?", "expected_section": "Руководство университетом", "keywords": ["ректор"], "source": "daggau_main_info.docx"}
-{"question": "Когда университет получил статус университета?", "expected_section": "Присвоение статуса университета", "keywords": ["статус университета"], "source": "daggau_main_info.docx"}
-{"question": "Какие сроки приёма в магистратуру?", "expected_section": "магистратуры устанавливаются следующие сроки", "keywords": ["магистратур"], "source": "abiturient.docx"}
+{"question": "Как начать пользоваться ассистентом?", "expected_section": "Начало работы", "keywords": ["зарегистрируйтесь"], "source": "demo_guide.docx"}
+{"question": "Как загрузить документы в базу знаний?", "expected_section": "Загрузка документов", "keywords": ["странице базы знаний"], "source": "demo_guide.docx"}
+{"question": "Что означают статусы обработки документов?", "expected_section": "Загрузка документов", "keywords": ["в очереди"], "source": "demo_guide.docx"}
+{"question": "Откуда берутся источники под ответом?", "expected_section": "Вопросы и ответы", "keywords": ["источниками"], "source": "demo_guide.docx"}
+{"question": "Какие форматы файлов поддерживаются?", "expected_section": "Документы", "keywords": ["pptx"], "source": "demo_formats.docx"}
+{"question": "Можно ли добавить статью по ссылке?", "expected_section": "Веб-страницы", "keywords": ["содержимое страницы"], "source": "demo_formats.docx"}
+{"question": "Как обрабатываются видео?", "expected_section": "Видео", "keywords": ["субтитры"], "source": "demo_formats.docx"}
+{"question": "Что делать, если у видео нет субтитров?", "expected_section": "Видео", "keywords": ["транскрипция аудиодорожки"], "source": "demo_formats.docx"}
+{"question": "Как выбрать модель для ответа?", "expected_section": "Модели", "keywords": ["выпадающем списке"], "source": "demo_faq.docx"}
+{"question": "Видят ли другие пользователи мои документы?", "expected_section": "Приватность", "keywords": ["изолированы по пользователям"], "source": "demo_faq.docx"}

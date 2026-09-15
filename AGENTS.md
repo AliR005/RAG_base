@@ -244,7 +244,8 @@ documents(id, user_id, source_type[file|url|youtube], origin, status, created_at
 
 - Эвалюация retrieval через **RAGAS** (`faithfulness`, `answer_relevancy`,
   `context_precision`) на небольшом golden-сете вопросов по документам
-  ДагГАУ — сильный аргумент на собеседовании ("как вы измеряли качество RAG").
+  базы знаний — сильный аргумент на собеседовании
+  ("как вы измеряли качество RAG").
 - Query rewriting / multi-query expansion для неоднозначных вопросов.
 - HyDE как переключаемая опция.
 - Простой admin-дашборд: статистика ingestion, расход токенов по

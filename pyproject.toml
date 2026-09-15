@@ -1,7 +1,7 @@
 [project]
 name = "rag-base"
 version = "0.1.0"
-description = "RAG-ассистент ДагГАУ (FastAPI + Qdrant + Ollama + Next.js)"
+description = "RAG-ассистент (FastAPI + Qdrant + Ollama + Next.js)"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [

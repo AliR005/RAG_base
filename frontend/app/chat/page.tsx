@@ -150,13 +150,13 @@ function ChatView() {
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col px-4 pb-6">
       <header className="flex items-center justify-between py-4">
-        <h1 className="text-lg font-semibold">ДагГАУ-ассистент</h1>
+        <h1 className="text-lg font-semibold">RAG-ассистент</h1>
         <ModelSelect models={models} value={modelId} onChange={setModelId} />
       </header>
       <div className="flex flex-1 flex-col gap-4 overflow-y-auto py-2" role="log" aria-live="polite">
         {messages.length === 0 && (
           <p className="mt-16 text-center text-sm text-gray-400">
-            Задайте вопрос по документам университета
+            Задайте вопрос по вашим документам
           </p>
         )}
         {messages.map((m) => (

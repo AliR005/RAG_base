@@ -3,8 +3,8 @@ import Sidebar from "@/components/Sidebar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ДагГАУ — RAG-ассистент",
-  description: "Вопросы и ответы по документам университета",
+  title: "RAG-ассистент",
+  description: "Вопросы и ответы по вашим документам",
 };
 
 export default function RootLayout({

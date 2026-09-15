@@ -31,7 +31,7 @@ export default function LoginPage() {
     <main className="mx-auto flex min-h-screen w-full max-w-sm flex-col justify-center px-6">
       <h1 className="text-2xl font-semibold">Вход</h1>
       <p className="mt-1 text-sm text-gray-500">
-        RAG-ассистент ДагГАУ — ответы по документам университета
+        RAG-ассистент — ответы по вашим документам
       </p>
       <form onSubmit={submit} className="mt-6 flex flex-col gap-3">
         <label className="flex flex-col gap-1 text-sm">
