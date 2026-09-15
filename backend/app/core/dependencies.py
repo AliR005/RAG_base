@@ -1,5 +1,10 @@
 from functools import lru_cache
 
+from app.adapters.db.memory import (
+    InMemoryChatRepository,
+    InMemoryDocumentRepository,
+    InMemoryUserRepository,
+)
 from app.adapters.embeddings.bge_m3 import BgeM3EmbeddingProvider
 from app.adapters.llm.factory import LLMProviderFactory
 from app.adapters.reranker.bge_reranker import BgeReranker
@@ -53,3 +58,20 @@ def get_retrieve_usecase() -> RetrieveUseCase:
         embeddings=get_embedding_provider(),
         reranker=get_reranker(),
     )
+
+
+# In-memory репозитории по умолчанию. Пункт 12 (Postgres) заменяет
+# их через app.core.container и dependency_overrides в main.
+@lru_cache
+def get_user_repository() -> InMemoryUserRepository:
+    return InMemoryUserRepository()
+
+
+@lru_cache
+def get_chat_repository() -> InMemoryChatRepository:
+    return InMemoryChatRepository()
+
+
+@lru_cache
+def get_document_repository() -> InMemoryDocumentRepository:
+    return InMemoryDocumentRepository()
