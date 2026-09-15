@@ -1,7 +1,7 @@
 [project]
 name = "rag-base"
 version = "0.1.0"
-description = "RAG-система для абитуриентов и студентов ДагГАУ (FastAPI + ChromaDB + Ollama + Streamlit)"
+description = "RAG-ассистент ДагГАУ (FastAPI + Qdrant + Ollama + Next.js)"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -10,7 +10,6 @@ dependencies = [
     "arq>=0.28.0",
     "asyncpg>=0.31.0",
     "bcrypt>=5.0.0",
-    "chromadb==0.6.3",
     "docling>=2.110.0",
     "email-validator>=2.3.0",
     "fastapi==0.115.11",

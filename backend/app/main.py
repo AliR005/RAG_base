@@ -6,18 +6,15 @@ from app.core.container import AppContainer, build_container
 from app.core.dependencies import (
     get_chat_repository,
     get_document_repository,
-    get_llm,
     get_llm_factory,
     get_qdrant_store,
     get_retrieve_usecase,
     get_user_repository,
-    get_vector_store,
 )
 from app.core.logging import configure_logging, get_logger
 from app.core.middleware import RequestIdMiddleware
 from app.core.rate_limit import limiter
 from app.routers.auth import router as auth_router
-from app.routers.chat import router as chat_router
 from app.routers.chats import router as chats_router
 from app.routers.documents import router as documents_router
 from app.routers.models import router as models_router
@@ -41,11 +38,6 @@ def _run_migrations() -> None:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    try:
-        get_vector_store()
-        get_llm()
-    except Exception as e:
-        log.warning("legacy_stack_unavailable", error=str(e))
     try:
         await asyncio.to_thread(_run_migrations)
         container: AppContainer | None = build_container(settings)
@@ -76,7 +68,6 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-app.include_router(chat_router)
 app.include_router(stream_router)
 app.include_router(auth_router)
 app.include_router(chats_router)

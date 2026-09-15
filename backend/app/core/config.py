@@ -10,7 +10,6 @@ class Settings(BaseSettings):
     PORT: int = 8000
     LLM_MODEL: str = "no_model"
     EMBEDDING_MODEL: str = "intfloat/multilingual-e5-base"
-    CHROMA_PATH: str = str(BASE_DIR / "chroma_db")
     COLLECTION_NAME: str = "collections_docs"
     QDRANT_URL: str = "http://localhost:6333"
     DATABASE_URL: str = "postgresql+asyncpg://rag:rag@localhost:5432/rag"

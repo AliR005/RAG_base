@@ -210,10 +210,3 @@ def test_documents_flow(client):
     assert (
         client.delete(f"/documents/{did}", headers=headers).status_code == 204
     )
-
-
-def test_legacy_query_endpoint_still_works(client):
-    # legacy /query/ ходит в ChromaDB/Ollama — без них допустима
-    # как 200, так и 500; проверяется только контракт маршрута
-    r = client.post("/query/", json={"query": "hi", "history": []})
-    assert r.status_code in (200, 500)

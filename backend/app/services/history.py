@@ -1,8 +1,8 @@
 # services/history.py
-from app.schemas.chat import Message
+from app.domain.chat import ChatMessage
 
 
-def format_history(history: list[Message]) -> str:
+def format_history(history: list[ChatMessage]) -> str:
     if not history:
         return ""
 

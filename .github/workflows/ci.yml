@@ -13,7 +13,7 @@ jobs:
         with:
           python-version: "3.14"
       - name: Install slim dependencies
-        # Полный стек (torch, chromadb, docling) для unit/contract-тестов
+        # Полный стек (torch, docling) для unit/contract-тестов
         # не нужен: тяжёлые импорты ленивые, live-тесты gated by RAG_LIVE.
         run: |
           pip install \

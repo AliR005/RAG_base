@@ -1,20 +1,16 @@
-.PHONY: help docs backend frontend run stop clean model_up model_down
+.PHONY: help backend frontend run stop clean model_up model_down
 
 include .env
 export
 
 help:
 	@echo "Доступные команды:"
-	@echo "  make docs        - загрузка документов в ChromaDB"
 	@echo "  make model_up    - запуск Ollama модели"
 	@echo "  make model_down  - остановка Ollama модели"
 	@echo "  make backend     - запуск FastAPI backend"
-	@echo "  make frontend    - запуск Streamlit frontend"
+	@echo "  make frontend    - запуск Next.js frontend"
 	@echo "  make run         - запуск backend + frontend"
 	@echo "  make stop        - остановка backend + frontend"
-
-docs:
-	cd backend && uv run python -m app.scripts.load_docs
 
 model_up:
 	ollama run $(LLM_MODEL) &
@@ -32,13 +28,12 @@ run:
 	$(MAKE) -j2 backend frontend &
 	@echo ""
 	@echo "Backend:  http://$(HOST):$(PORT)"
-	@echo "Frontend: http://localhost:8501"
+	@echo "Frontend: http://localhost:3000"
 
 stop:
 	@pkill -f uvicorn || true
-	@pkill -f streamlit || true
+	@pkill -f next-server || true
 	@echo "Остановлено"
 
 clean:
 	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
-	find . -type d -name .chroma -exec rm -rf {} + 2>/dev/null || true

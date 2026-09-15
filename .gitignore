@@ -8,7 +8,6 @@ backend/static/
 .pytest_cache/
 .coverage
 htmlcov/
-backend/chroma_db
 backend/uploads/
 frontend/node_modules/
 frontend/.next/

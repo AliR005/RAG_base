@@ -14,22 +14,6 @@ from app.core.config import settings
 
 
 @lru_cache
-def get_vector_store():
-    # Ленивый импорт: chromadb + sentence-transformers тяжелы и нужны
-    # только legacy-эндпоинту /query/.
-    from app.db.vector_store import VectorStore
-
-    return VectorStore()
-
-
-@lru_cache
-def get_llm():
-    from app.services.llm import LLMAssistant
-
-    return LLMAssistant()
-
-
-@lru_cache
 def get_embedding_provider() -> BgeM3EmbeddingProvider:
     return BgeM3EmbeddingProvider(settings.EMBEDDING_MODEL)
 

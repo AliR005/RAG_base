@@ -192,7 +192,7 @@ cd frontend && npm run typecheck && npm run build
 ```
 
 CI (`.github/workflows/ci.yml`): ruff + pytest на slim-зависимостях
-(тяжёлые импорты torch/chroma ленивые — CI идёт ~минуту), typecheck
+(тяжёлые импорты torch ленивые — CI идёт ~минуту), typecheck
 и build фронта. Live-тесты Postgres/Qdrant — только локально
 (`RAG_LIVE=1`, нужен `docker compose up`).
 
