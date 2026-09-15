@@ -314,7 +314,7 @@ RAG_base/
 - [x] 5. `feat(ingestion)`: `YouTubeLoader` (`yt-dlp` + `youtube-transcript-api`, fallback `faster-whisper`).
 - [x] 6. `feat(ingestion)`: `LoaderFactory` + асинхронная очередь (arq/RQ) + таблица `documents` со статусами.
 - [x] 7. `feat(vector-store)`: `QdrantVectorStoreRepository` — dense+sparse (`bge-m3`), payload-фильтрация по `user_id`.
-- [ ] 8. `feat(retrieval)`: гибридный поиск (RRF) + реранкинг (`bge-reranker-v2-m3`).
+- [x] 8. `feat(retrieval)`: гибридный поиск (RRF) + реранкинг (`bge-reranker-v2-m3`).
 - [ ] 9. `feat(llm)`: провайдеры `OpenRouterProvider`, `AnthropicProvider`, `OllamaProvider` + `LLMProviderFactory` + реестр моделей.
 - [ ] 10. `feat(api)`: настоящий SSE-стриминг вместо fake streaming.
 - [ ] 11. `feat(auth)`: регистрация/логин, JWT, хэширование паролей, middleware авторизации.
