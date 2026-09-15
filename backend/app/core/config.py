@@ -18,6 +18,11 @@ class Settings(BaseSettings):
     ANTHROPIC_API_KEY: str = ""
     JWT_SECRET: str = "change-me"
     JWT_EXPIRE_MINUTES: int = 60
+    CORS_ORIGINS: str = "http://localhost:3000,http://127.0.0.1:3000"
+
+    @property
+    def cors_origins_list(self) -> list[str]:
+        return [o.strip() for o in self.CORS_ORIGINS.split(",") if o.strip()]
 
     model_config = {"env_file": BASE_DIR.parent / ".env"}
 

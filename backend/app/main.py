@@ -12,7 +12,7 @@ from app.core.dependencies import (
     get_user_repository,
 )
 from app.core.logging import configure_logging, get_logger
-from app.core.middleware import RequestIdMiddleware
+from app.core.middleware import REQUEST_ID_HEADER, RequestIdMiddleware
 from app.core.rate_limit import limiter
 from app.routers.auth import router as auth_router
 from app.routers.chats import router as chats_router
@@ -20,6 +20,7 @@ from app.routers.documents import router as documents_router
 from app.routers.models import router as models_router
 from app.routers.stream import router as stream_router
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 
@@ -77,6 +78,14 @@ app.include_router(documents_router)
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 app.add_middleware(RequestIdMiddleware)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.cors_origins_list,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+    expose_headers=[REQUEST_ID_HEADER],
+)
 
 
 @app.get("/health")
