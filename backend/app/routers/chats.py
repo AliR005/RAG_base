@@ -4,8 +4,6 @@
 по завершении assistant-сообщение сохраняется с model_used и sources.
 """
 
-from __future__ import annotations
-
 import json
 import uuid
 from collections.abc import AsyncIterator
@@ -16,6 +14,7 @@ from app.core.dependencies import (
     get_llm_factory,
     get_retrieve_usecase,
 )
+from app.core.rate_limit import limiter
 from app.domain.chat import ChatMessage, Citation
 from app.domain.user import User
 from app.ports.repositories import ChatRepository
@@ -28,7 +27,7 @@ from app.schemas.chats import (
     MessageOut,
     SendMessageRequest,
 )
-from fastapi import APIRouter, Depends, HTTPException, Response
+from fastapi import APIRouter, Depends, HTTPException, Request, Response
 from fastapi.responses import StreamingResponse
 
 router = APIRouter(prefix="/chats", tags=["chats"])
@@ -118,7 +117,11 @@ async def list_messages(
 
 
 @router.post("/{chat_id}/messages")
+# NB: без `from __future__ import annotations` в этом модуле —
+# slowapi-обёртка ломает определение body-параметров FastAPI.
+@limiter.limit("30/minute")
 async def send_message(
+    request: Request,
     chat_id: str,
     body: SendMessageRequest,
     user: User = Depends(get_current_user),

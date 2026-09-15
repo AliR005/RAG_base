@@ -13,6 +13,9 @@ from app.core.dependencies import (
     get_user_repository,
     get_vector_store,
 )
+from app.core.logging import configure_logging, get_logger
+from app.core.middleware import RequestIdMiddleware
+from app.core.rate_limit import limiter
 from app.routers.auth import router as auth_router
 from app.routers.chat import router as chat_router
 from app.routers.chats import router as chats_router
@@ -20,6 +23,11 @@ from app.routers.documents import router as documents_router
 from app.routers.models import router as models_router
 from app.routers.stream import router as stream_router
 from fastapi import FastAPI
+from slowapi import _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
+
+configure_logging()
+log = get_logger("app")
 
 
 def _run_migrations() -> None:
@@ -37,7 +45,7 @@ async def lifespan(app: FastAPI):
         get_vector_store()
         get_llm()
     except Exception as e:
-        print(f"Legacy Chroma/Ollama stack unavailable: {e}")
+        log.warning("legacy_stack_unavailable", error=str(e))
     try:
         await asyncio.to_thread(_run_migrations)
         container: AppContainer | None = build_container(settings)
@@ -57,7 +65,7 @@ async def lifespan(app: FastAPI):
         print("Postgres wired: repositories use Postgres")
     except Exception as e:
         app.state.container = None
-        print(f"Postgres unavailable, using in-memory repos: {e}")
+        log.warning("postgres_unavailable", error=str(e))
     yield
 
 
@@ -74,6 +82,10 @@ app.include_router(auth_router)
 app.include_router(chats_router)
 app.include_router(models_router)
 app.include_router(documents_router)
+
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+app.add_middleware(RequestIdMiddleware)
 
 
 @app.get("/health")

@@ -327,7 +327,7 @@ RAG_base/
 - [x] 18. `feat(frontend)`: сайдбар с сохранёнными чатами, финальный минималистичный дизайн, адаптивность.
 - [x] 19. `test`: unit + integration тесты (`pytest`) на ключевые сценарии.
 - [x] 20. `ci`: GitHub Actions — lint + тесты на каждый push.
-- [ ] 21. `feat(observability)`: структурное логирование, rate limiting.
+- [x] 21. `feat(observability)`: структурное логирование, rate limiting.
 - [ ] 22. `docs`: полный README — архитектурная диаграмма (mermaid), скриншоты, инструкция по запуску.
 - [ ] 23. *(опционально)* `feat(eval)`: RAGAS-оценка retrieval на golden-сете вопросов.
 
