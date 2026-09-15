@@ -1,7 +1,7 @@
 """Initial schema: users, chats, messages, documents."""
 
-from alembic import op
 import sqlalchemy as sa
+from alembic import op
 
 revision = "0001_initial"
 down_revision = None
@@ -15,9 +15,7 @@ def upgrade() -> None:
         sa.Column("id", sa.String(32), primary_key=True),
         sa.Column("email", sa.String(320), nullable=False, unique=True),
         sa.Column("hashed_password", sa.Text(), nullable=False),
-        sa.Column(
-            "created_at", sa.DateTime(timezone=True), nullable=False
-        ),
+        sa.Column("created_at", sa.DateTime(timezone=True), nullable=False),
     )
     op.create_index("ix_users_email", "users", ["email"])
     op.create_table(
@@ -30,12 +28,8 @@ def upgrade() -> None:
             nullable=False,
         ),
         sa.Column("title", sa.String(200), nullable=False),
-        sa.Column(
-            "created_at", sa.DateTime(timezone=True), nullable=False
-        ),
-        sa.Column(
-            "updated_at", sa.DateTime(timezone=True), nullable=False
-        ),
+        sa.Column("created_at", sa.DateTime(timezone=True), nullable=False),
+        sa.Column("updated_at", sa.DateTime(timezone=True), nullable=False),
     )
     op.create_index("ix_chats_user_id", "chats", ["user_id"])
     op.create_table(
@@ -51,9 +45,7 @@ def upgrade() -> None:
         sa.Column("content", sa.Text(), nullable=False),
         sa.Column("model_used", sa.String(100)),
         sa.Column("sources_json", sa.JSON(), nullable=False),
-        sa.Column(
-            "created_at", sa.DateTime(timezone=True), nullable=False
-        ),
+        sa.Column("created_at", sa.DateTime(timezone=True), nullable=False),
     )
     op.create_index("ix_messages_chat_id", "messages", ["chat_id"])
     op.create_table(
@@ -71,9 +63,7 @@ def upgrade() -> None:
         sa.Column("status", sa.String(16), nullable=False),
         sa.Column("content_hash", sa.String(64)),
         sa.Column("error", sa.Text()),
-        sa.Column(
-            "created_at", sa.DateTime(timezone=True), nullable=False
-        ),
+        sa.Column("created_at", sa.DateTime(timezone=True), nullable=False),
     )
     op.create_index("ix_documents_user_id", "documents", ["user_id"])
 
